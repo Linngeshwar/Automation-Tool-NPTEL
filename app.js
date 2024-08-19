@@ -88,13 +88,22 @@ app.get('/add-event', async (req, res) => {
   const event = {
     summary: 'Exam Schedule',
     start: {
-      date: '2024-08-22',
+      dateTime: '2024-08-20T16:30:00',
       timeZone: 'Asia/Kolkata',
     },
     end: {
-      date: '2024-08-31',
+      dateTime: '2024-08-20T17:30:00',
       timeZone: 'Asia/Kolkata',
     },
+    reminders: {
+      useDefault:false,
+      overrides: [
+        {method: 'popup',minutes: 60},
+        {method: 'popup',minutes: 120},
+        {method: 'popup',minutes: 180},
+        {method: 'popup',minutes: 240},
+      ]
+    }
   };
 
   try {
